@@ -5,9 +5,6 @@ import net.serenitybdd.rest.SerenityRest;
 
 import static net.serenitybdd.core.Serenity.getWebdriverManager;
 
-/**
- * Created by Ardit Podrimaj
- */
 
 public class Hooks {
 
@@ -15,6 +12,8 @@ public class Hooks {
     public void setup() {
 
         System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
+        getWebdriverManager().getWebdriver().manage().window().maximize();
+
         //SerenityRest.enableLoggingOfRequestAndResponseIfValidationFails();
     }
 }

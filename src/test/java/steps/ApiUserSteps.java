@@ -24,4 +24,5 @@ public class  ApiUserSteps extends ScenarioSteps {
                 .assertThat()
                 .statusCode(201);
     }
+
 }

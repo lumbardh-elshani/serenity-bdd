@@ -12,9 +12,7 @@ public class UserStepDefinitions {
 
     @Given("^I create user with name \"([^\"]*)\" and last name \"([^\"]*)\"$")
     public void iCreateUserWithNameFilanAndLastNameFisteku(String firstName, String lastName) {
-
         apiUserSteps.createUser(firstName, lastName);
-
     }
 
     @Then("^User should be created$")

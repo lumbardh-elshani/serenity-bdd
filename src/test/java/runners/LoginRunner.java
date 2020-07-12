@@ -5,7 +5,9 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
 /**
- * Created by Ardit Podrimaj
+ * @author lumba
+ * @project uiautomation
+ * @date 7/11/2020, @time 14:00
  */
 
 @RunWith(CucumberWithSerenity.class)
