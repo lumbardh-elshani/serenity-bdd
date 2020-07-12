@@ -14,11 +14,7 @@ public class Hooks {
     @Before
     public void setup() {
 
-        /*System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
-
-        getWebdriverManager().getWebdriver().manage().window().maximize();
-        getWebdriverManager().getWebdriver().get("https://facebook.com");*/
-
-        SerenityRest.enableLoggingOfRequestAndResponseIfValidationFails();
+        System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
+        //SerenityRest.enableLoggingOfRequestAndResponseIfValidationFails();
     }
 }

@@ -5,7 +5,7 @@ import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
-public class ApiUserSteps extends ScenarioSteps {
+public class  ApiUserSteps extends ScenarioSteps {
 
     final String CREATE_USER = "https://reqres.in/api/users";
 

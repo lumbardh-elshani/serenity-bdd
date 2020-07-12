@@ -20,8 +20,9 @@ public class LoginStepDefinitions {
         loginSteps.login();
     }
 
+
     @Then("^User should see Dashboard$")
     public void userShouldSeeDashboard() {
-
     }
+
 }
