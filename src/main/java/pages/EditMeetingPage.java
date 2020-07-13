@@ -6,48 +6,47 @@ import lombok.experimental.FieldDefaults;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 
-import java.nio.file.WatchEvent;
-
 /**
  * @author lumba
  * @project uiautomation
- * @date 7/12/2020, @time 22:01
+ * @date 7/13/2020, @time 14:42
  */
+
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CreateMeetingPage extends AbstractPage{
+public class EditMeetingPage {
 
-    @FindBy(xpath = "/html/body/app-root/app-create-meeting/div/div/input[1]")
+    @FindBy(xpath = "/html/body/app-root/app-edit-meeting/div/div/input[1]")
     WebElementFacade meetingTitleField;
 
-    @FindBy(xpath = "/html/body/app-root/app-create-meeting/div/div/input[2]")
+    @FindBy(xpath = "/html/body/app-root/app-edit-meeting/div/div/input[2]")
     WebElementFacade meetingDescriptionField;
 
-    @FindBy(xpath = "/html/body/app-root/app-create-meeting/div/div/input[3]")
+    @FindBy(xpath = "/html/body/app-root/app-edit-meeting/div/div/input[3]")
     WebElementFacade meetingStartDateField;
 
-    @FindBy(xpath = "/html/body/app-root/app-create-meeting/div/div/input[4]")
+    @FindBy(xpath = "/html/body/app-root/app-edit-meeting/div/div/input[4]")
     WebElementFacade meetingEndDateField;
 
-    @FindBy(xpath = "/html/body/app-root/app-create-meeting/div/div/input[5]")
+    @FindBy(xpath = "/html/body/app-root/app-edit-meeting/div/div/input[5]")
     WebElementFacade meetingPlaceField;
 
-    @FindBy(xpath = "/html/body/app-root/app-create-meeting/div/div/input[6]")
+    @FindBy(xpath = "/html/body/app-root/app-edit-meeting/div/div/input[6]")
     WebElementFacade meetingCommentField;
 
-    @FindBy(xpath = "/html/body/app-root/app-create-meeting/div/div/div[1]/div/select")
+    @FindBy(xpath = "/html/body/app-root/app-edit-meeting/div/div/div[1]/div/select")
     WebElementFacade creatorDropDown;
 
-    @FindBy(xpath = "/html/body/app-root/app-create-meeting/div/div/div[2]/label[1]/input")
+    @FindBy(xpath = "/html/body/app-root/app-edit-meeting/div/div/div[2]/label[1]/input")
     WebElementFacade yesRadioButton;
 
-    @FindBy(xpath = "/html/body/app-root/app-create-meeting/div/div/div[2]/label[2]/input")
+    @FindBy(xpath = "/html/body/app-root/app-edit-meeting/div/div/div[2]/label[2]/input")
     WebElementFacade noRadioButton;
 
-    @FindBy(xpath = "/html/body/app-root/app-create-meeting/div/div/div[3]/button[2]")
-    WebElementFacade createButton;
+    @FindBy(xpath = "/html/body/app-root/app-edit-meeting/div/div/div[3]/button[2]")
+    WebElementFacade editButton;
 
-    @FindBy(xpath = "/html/body/app-root/app-create-meeting/div/div/div[3]/button[1]")
+    @FindBy(xpath = "/html/body/app-root/app-edit-meeting/div/div/div[3]/button[1]")
     WebElementFacade cancelButton;
 
     public WebElementFacade getMeetingTitleField() {
@@ -86,8 +85,8 @@ public class CreateMeetingPage extends AbstractPage{
         return noRadioButton;
     }
 
-    public WebElementFacade getCreateButton() {
-        return createButton;
+    public WebElementFacade getEditButton() {
+        return editButton;
     }
 
     public WebElementFacade getCancelButton() {
