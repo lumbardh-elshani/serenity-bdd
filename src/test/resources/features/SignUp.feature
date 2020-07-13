@@ -1,5 +1,5 @@
 @driver:chrome
-@debug
+@ui-debug-runner
 Feature: SignUp
 
   Scenario: SignUp with personal information

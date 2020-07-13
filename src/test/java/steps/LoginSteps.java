@@ -25,7 +25,6 @@ public class LoginSteps extends ScenarioSteps {
     }
 
     public void openLoginPage(String loginURL){
-        getWebdriverManager().getWebdriver().manage().window().maximize();
         getWebdriverManager().getWebdriver().get(loginURL);
     }
     public void fillEmailAndPassword(String email, String pass){
@@ -39,7 +38,7 @@ public class LoginSteps extends ScenarioSteps {
     }
 
     public void shouldSeeDashboard(){
-        getWebdriverManager().getWebdriver().navigate().to(GlobalConstants.DASHBOARD_URL);
+        //getWebdriverManager().getWebdriver().navigate().to(GlobalConstants.DASHBOARD_URL);
     }
 
 }

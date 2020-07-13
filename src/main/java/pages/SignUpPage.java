@@ -37,6 +37,8 @@ public class SignUpPage extends AbstractPage{
     @FindBy(id = "registerPassword")
     WebElementFacade passwordField;
 
+    @FindBy(id = "registerButton")
+    WebElementFacade signUpButton;
 
     public WebElementFacade getFirsNameField() {
         return firsNameField;
@@ -70,6 +72,5 @@ public class SignUpPage extends AbstractPage{
         return signUpButton;
     }
 
-    @FindBy(id = "registerButton")
-    WebElementFacade signUpButton;
+
 }

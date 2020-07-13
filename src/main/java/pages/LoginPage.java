@@ -21,6 +21,9 @@ public class LoginPage extends AbstractPage {
     @FindBy(id = "loginPassword")
     WebElementFacade passwordInput;
 
+    @FindBy(xpath = "/html/body/app-root/app-auth/section/div/div/div/app-login/div/div/a")
+    WebElementFacade forgotPasswordButton;
+
     public WebElementFacade getEmailInput() {
         return emailInput;
     }
@@ -31,6 +34,10 @@ public class LoginPage extends AbstractPage {
 
     public WebElementFacade getLoginButton() {
         return loginButton;
+    }
+
+    public WebElementFacade getForgotPasswordButton() {
+        return forgotPasswordButton;
     }
 
     @FindBy(xpath = "/html/body/app-root/app-auth/section/div/div/div/app-login/div/div/form/button")

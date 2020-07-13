@@ -35,6 +35,6 @@ public class SignUpStepDefinitions {
 
     @Then("^User should be redirected to \"([^\"]*)\"$")
     public void userShouldBeRedirectedTo(String arg0) throws Throwable {
-        signUpSteps.redirectTo(arg0);
+
     }
 }

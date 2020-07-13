@@ -1,5 +1,5 @@
 @driver:chrome
-@debug
+@ui-debug-runner
 Feature: Logout
 
   Scenario: Logout from the system

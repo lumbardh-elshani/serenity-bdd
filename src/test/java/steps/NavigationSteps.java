@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import net.thucydides.core.annotations.Steps;
 import pages.DashboardPage;
+import pages.HomePage;
 
 import static net.serenitybdd.core.Serenity.getWebdriverManager;
 
@@ -19,6 +20,7 @@ public class NavigationSteps {
     @Steps
     LoginSteps loginSteps;
     DashboardPage dashboardPage;
+    HomePage homePage;
 
     public void performLogin(){
         loginSteps.login();
@@ -55,4 +57,15 @@ public class NavigationSteps {
     }
 
 
+    public void navigateToHomePage() {
+        getWebdriverManager().getWebdriver().navigate().to(GlobalConstants.HOMEPAGE_URL);
+    }
+
+    public void clickLoginButton() {
+        homePage.getHomepageLoginButton().click();
+    }
+
+    public void clickRegisterButton() {
+        homePage.getHomepageRegisterButton().click();
+    }
 }

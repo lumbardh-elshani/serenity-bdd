@@ -51,4 +51,19 @@ public class NavigationStepDefinitions {
     public void userShouldSeeTheCalendar() {
 
     }
+
+    @Given("^User is on Home Page$")
+    public void userIsOnHomePage() {
+        navigationSteps.navigateToHomePage();
+    }
+
+    @When("^User clicks Login Button on Homepage$")
+    public void userClicksLoginButtonOnHomepage() {
+        navigationSteps.clickLoginButton();
+    }
+
+    @When("^User clicks Register Button on Homepage$")
+    public void userClicksRegisterButtonOnHomepage() {
+        navigationSteps.clickRegisterButton();
+    }
 }

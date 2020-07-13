@@ -21,17 +21,15 @@ public class SignUpSteps {
 
     SignUpPage signUpPage;
 
-    public void navigateTo(String arg0) {
-        getWebdriverManager().getWebdriver().manage().window().maximize();
-        getWebdriverManager().getWebdriver().get(arg0);
+    public void navigateTo(String registerURL) {
+        getWebdriverManager().getWebdriver().get(registerURL);
     }
 
     public void fillSignUpForm(){
         signUpPage.getFirsNameField().type("Lumbardh");
         signUpPage.getLastNameField().type("Elshani");
         signUpPage.getRoleDropDown().selectByValue("STUDENT");
-        //Kontrollo se si me selectu date ne datepicker me webdriver
-        //signUpPage.getBirthDateDatePicker().type("02/02/2000");
+        signUpPage.getBirthDateDatePicker().sendKeys("12-12-2015");
         signUpPage.getGenderDropDown().selectByValue("MALE");
         signUpPage.getEmailField().type("lumbardhelshani00@gmail.com");
         signUpPage.getPasswordField().type("testtest");
@@ -39,8 +37,7 @@ public class SignUpSteps {
     }
 
 
-    public void redirectTo(String arg0) {
-        getWebdriverManager().getWebdriver().manage().window().maximize();
-        getWebdriverManager().getWebdriver().get(arg0);
+    public void redirectTo(String loginURL) {
+        //getWebdriverManager().getWebdriver().get(loginURL);
     }
 }

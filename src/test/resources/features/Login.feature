@@ -1,5 +1,5 @@
 @driver:chrome
-@debug
+@ui-debug-runner
 Feature: Login
 
   Scenario: Login with valid credentials
