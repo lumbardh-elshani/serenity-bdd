@@ -1,6 +1,6 @@
 @driver:chrome
 @ui-debug-runner
-Feature: Schedule
+Feature: Schedule Settings
 
   Scenario: User changes the settings of schedule
     Given User wants to change schedule settings

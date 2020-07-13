@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
  */
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features ="classpath:features/Schedule.feature",
+@CucumberOptions(features ="classpath:features/ScheduleSettings.feature",
         glue = "classpath:definitions")
-public class ScheduleRunner {
+public class ScheduleSettingsRunner {
 }

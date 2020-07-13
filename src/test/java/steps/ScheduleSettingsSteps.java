@@ -16,7 +16,7 @@ import static net.serenitybdd.core.Serenity.getWebdriverManager;
  */
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ScheduleSteps {
+public class ScheduleSettingsSteps {
     @Steps
     LoginSteps loginSteps;
 
@@ -31,26 +31,25 @@ public class ScheduleSteps {
     }
 
     public void changeScheduleSettings() {
-        if ( !scheduleGeneralSettingsPage.getMondayCheckbox().isSelected() )
-        {
+        if ( !scheduleGeneralSettingsPage.getMondayCheckbox().isSelected() ) {
             scheduleGeneralSettingsPage.getMondayCheckbox().click();
         }
-        else if(!scheduleGeneralSettingsPage.getTuesdayCheckbox().isSelected()){
+        if(!scheduleGeneralSettingsPage.getTuesdayCheckbox().isSelected()){
             scheduleGeneralSettingsPage.getTuesdayCheckbox().click();
         }
-        else if(!scheduleGeneralSettingsPage.getWednesdayCheckbox().isSelected()){
+        if(!scheduleGeneralSettingsPage.getWednesdayCheckbox().isSelected()){
             scheduleGeneralSettingsPage.getWednesdayCheckbox().click();
         }
-        else if(!scheduleGeneralSettingsPage.getThursdayCheckbox().isSelected()){
+        if(!scheduleGeneralSettingsPage.getThursdayCheckbox().isSelected()){
             scheduleGeneralSettingsPage.getThursdayCheckbox().click();
         }
-        else if(!scheduleGeneralSettingsPage.getFridayCheckbox().isSelected()){
+        if(!scheduleGeneralSettingsPage.getFridayCheckbox().isSelected()){
             scheduleGeneralSettingsPage.getFridayCheckbox().click();
         }
-        else if(scheduleGeneralSettingsPage.getSaturdayCheckbox().isSelected()){
+        if(scheduleGeneralSettingsPage.getSaturdayCheckbox().isSelected()){
             scheduleGeneralSettingsPage.getSaturdayCheckbox().click();
         }
-        else if(scheduleGeneralSettingsPage.getSundayCheckbox().isSelected()){
+        if(scheduleGeneralSettingsPage.getSundayCheckbox().isSelected()){
             scheduleGeneralSettingsPage.getSundayCheckbox().click();
         }
 
