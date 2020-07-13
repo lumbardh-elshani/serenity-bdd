@@ -12,5 +12,5 @@ Feature: Schedule
   Scenario: User resets the settings of schedule
     Given User wants to reset schedule settings to default
     When User goes to schedule setting page to reset the settings
-    And Cliks to reset button
+    And Cliks reset button
     Then Schedule settings should be reset

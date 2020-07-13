@@ -50,7 +50,7 @@ public class ScheduleStepDefinitions {
         scheduleSteps.openScheduleSettings();
     }
 
-    @And("^Cliks to reset button$")
+    @And("^Cliks reset button$")
     public void cliksToResetButton() {
         scheduleSteps.resetSettings();
     }
