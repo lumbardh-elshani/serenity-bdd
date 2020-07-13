@@ -1,2 +1,2 @@
 # serenity-bdd
-serenity bdd simple demo project
+serenity bdd project for ui & api testing for Education Management System
