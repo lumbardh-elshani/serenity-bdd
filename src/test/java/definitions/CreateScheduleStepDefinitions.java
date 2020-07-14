@@ -16,12 +16,12 @@ public class CreateScheduleStepDefinitions {
     @Steps
     CreateScheduleSteps createScheduleSteps;
 
-    @Given("^User wants to create a date based schedule$")
+    @Given("^Student wants to create a date based schedule$")
     public void userWantsToCreateADateBasedSchedule() {
         createScheduleSteps.performLogin();
     }
 
-    @When("^User opens page to create a date based schedule$")
+    @When("^Student opens page to create a date based schedule$")
     public void userOpensPageToCreateADateBasedSchedule() {
         createScheduleSteps.openCreateDateBasedSchedulePage();
     }
@@ -40,12 +40,12 @@ public class CreateScheduleStepDefinitions {
     public void theScheduleShouldBeSaved() {
     }
 
-    @Given("^User wants to reset the date based schedule to default values$")
+    @Given("^Student wants to reset the date based schedule to default values$")
     public void userWantsToResetTheDateBasedScheduleToDefaultValues() {
         createScheduleSteps.performLogin();
     }
 
-    @When("^User opens date based schedule page$")
+    @When("^Student opens date based schedule page$")
     public void userOpensDateBasedSchedulePage() {
         createScheduleSteps.openCreateDateBasedSchedulePage();
     }
@@ -59,12 +59,12 @@ public class CreateScheduleStepDefinitions {
     public void theScheduleShouldBeReset() {
     }
 
-    @Given("^User wants to create a periodic schedule$")
+    @Given("^Student wants to create a periodic schedule$")
     public void userWantsToCreateAPeriodicSchedule() {
         createScheduleSteps.performLogin();
     }
 
-    @When("^User opens page to create a periodic schedule$")
+    @When("^Student opens page to create a periodic schedule$")
     public void userOpensPageToCreateAPeriodicSchedule() {
         createScheduleSteps.openCreatePeriodicSchedulePage();
     }
@@ -83,12 +83,12 @@ public class CreateScheduleStepDefinitions {
     public void thePeriodicScheduleShouldBeSaved() {
     }
 
-    @Given("^User wants to reset the periodic schedule to default values$")
+    @Given("^Student wants to reset the periodic schedule to default values$")
     public void userWantsToResetThePeriodicScheduleToDefaultValues() {
         createScheduleSteps.performLogin();
     }
 
-    @When("^User opens periodic schedule page$")
+    @When("^Student opens periodic schedule page$")
     public void userOpensPeriodicSchedulePage() {
         createScheduleSteps.openCreatePeriodicSchedulePage();
     }

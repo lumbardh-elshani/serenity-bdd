@@ -16,12 +16,12 @@ public class ScheduleSettingsStepDefinitions {
     @Steps
     ScheduleSettingsSteps scheduleSettingsSteps;
 
-    @Given("^User wants to change schedule settings$")
+    @Given("^System administrator wants to change schedule settings$")
     public void userWantsToChangeScheduleSettings() {
         scheduleSettingsSteps.performLogin();
     }
 
-    @When("^User goes to schedule setting page$")
+    @When("^System administrator goes to schedule setting page$")
     public void userGoesToScheduleSettingPage() {
         scheduleSettingsSteps.openScheduleSettings();
     }
@@ -31,7 +31,7 @@ public class ScheduleSettingsStepDefinitions {
         scheduleSettingsSteps.changeScheduleSettings();
     }
 
-    @And("^User saves the changed settings$")
+    @And("^System administrator saves the changed settings$")
     public void userSavesTheChangedSettings() {
         scheduleSettingsSteps.saveChangedSettings();
     }
@@ -40,12 +40,12 @@ public class ScheduleSettingsStepDefinitions {
     public void scheduleSettingsShouldBeChanged() {
     }
 
-    @Given("^User wants to reset schedule settings to default$")
+    @Given("^System administrator wants to reset schedule settings to default$")
     public void userWantsToResetScheduleSettingsToDefault() {
         scheduleSettingsSteps.performLogin();
     }
 
-    @When("^User goes to schedule setting page to reset the settings$")
+    @When("^System administrator goes to schedule setting page to reset the settings$")
     public void userGoesToScheduleSettingPageToResetTheSettings() {
         scheduleSettingsSteps.openScheduleSettings();
     }

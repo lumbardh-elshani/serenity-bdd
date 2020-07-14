@@ -1,5 +1,8 @@
 package pages;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.experimental.FieldDefaults;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 
@@ -8,6 +11,8 @@ import net.serenitybdd.core.pages.WebElementFacade;
  * @project uiautomation
  * @date 7/13/2020, @time 13:56
  */
+@Getter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class MeetingsPage extends AbstractPage{
     @FindBy(xpath = "//*[@id=\"content\"]/div/div/div/div[1]/div/div[2]/div/div/a")
     WebElementFacade createMeetingButton;

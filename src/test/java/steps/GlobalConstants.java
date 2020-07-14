@@ -18,4 +18,7 @@ public class GlobalConstants {
     public static final String MEETINGS_URL = "http://localhost:4200/meetings";
     public static final String SCHEDULE_SETTINGS_URL = "http://localhost:4200/schedule/general-settings";
     public static final String SCHEDULE_CREATE_URL = "http://localhost:4200/schedule/create";
+    public static final String PRESENCE_URL = "http://localhost:4200/schedule/presence";
+    public static final String GRADE_BOOK_URL = "http://localhost:4200/grade-book";
+    public static final String CHAT_URL = "http://localhost:4200/chat/1";
 }
