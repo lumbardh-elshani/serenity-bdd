@@ -1,5 +1,7 @@
 package steps;
 
+import java.net.URI;
+
 /**
  * @author lumba
  * @project uiautomation
@@ -21,4 +23,6 @@ public class GlobalConstants {
     public static final String PRESENCE_URL = "http://localhost:4200/schedule/presence";
     public static final String GRADE_BOOK_URL = "http://localhost:4200/grade-book";
     public static final String CHAT_URL = "http://localhost:4200/chat/1";
+    public static final String CREATE_SCHOOL_URL_POST = "http://localhost:8081/school";
+    public static final String CREATE_COMMENT_URL_POST = "http://localhost:8080/post-comment";
 }

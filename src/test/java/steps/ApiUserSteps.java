@@ -9,9 +9,8 @@ import net.thucydides.core.steps.ScenarioSteps;
 
 public class  ApiUserSteps extends ScenarioSteps {
 
-    final String CREATE_USER = "http://localhost:8662/user/users";
+    final String CREATE_USER = "http://localhost:8082/user/users";
 
-    final String GET_USER = "http://localhost:8662/user/users";
 
 //    @Step("Create user with credentials {0} & {1}")
 //    public void createUser(String firstName, String lastName) {
@@ -29,13 +28,13 @@ public class  ApiUserSteps extends ScenarioSteps {
 //                .statusCode(201);
 //    }
 
-    @Step("Get use by id")
+    @Step("Get user by id")
     public void getUserById() {
 
         SerenityRest
                 .rest()
                 .contentType(ContentType.JSON)
-                .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2ODU0NmMwMS1jZDM2LTRjMWUtOTEzYi03ZTM1Y2JjZDU3ZGIiLCJleHAiOjE1OTQ4NDQwNzl9.H_uUke8e9ATh4OB-ahJJFnRmpSCboEHyVVMYfvdDrF2qXsMjoZBXlyBlgpFRzmptKvhos8_g7k2nuLZMTjyiGg"))
+                .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MTdjOTQ2MC1jM2I2LTExZWEtODdkMC0wMjQyYWMxMzAwMDMiLCJleHAiOjE1OTY0OTU1NDR9.DPu5NaUghcIYkLx1d5NzTCJWrVwVsI_OrsaS9YvqNymMkhtJEAsQ2CzXM9IqADzSKFJaZml98OdAmuZYIbrZjQ"))
                 .when()
                 .get(CREATE_USER)
                 .then()
@@ -63,6 +62,7 @@ public class  ApiUserSteps extends ScenarioSteps {
                 .then()
                 .assertThat()
                 .statusCode(201);
+
 
     }
 }
