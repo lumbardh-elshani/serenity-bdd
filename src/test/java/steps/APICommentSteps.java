@@ -3,62 +3,68 @@ package steps;
 import com.google.gson.JsonObject;
 import io.restassured.http.ContentType;
 import io.restassured.http.Header;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.experimental.FieldDefaults;
 import net.serenitybdd.rest.SerenityRest;
+import net.thucydides.core.annotations.Step;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @author lumba
  * @project uiautomation
- * @date 7/15/2020, @time 14:09
+ * @date 7/15/2020, @time 15:42
  */
-public class ApiSchoolSteps {
-    public void createSchool(String schoolName, String address, String city, String schoolType, String createdDate) {
-
-        JsonObject schoolObj = new JsonObject();
-        schoolObj.addProperty("name", schoolName);
-        schoolObj.addProperty("address", address);
-        schoolObj.addProperty("city", city);
-        schoolObj.addProperty("schoolType", schoolType);
-        schoolObj.addProperty("schoolCreationDate", createdDate);
-
+@Getter
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class APICommentSteps {
+    @Step("Create comment with content: {0}, and note: {1}")
+    public void createComment(String content, String note) {
+        JsonObject commentObj = getCommentObject(content, note);
         SerenityRest
                 .rest()
                 .contentType(ContentType.JSON)
                 .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MTdjOTQ2MC1jM2I2LTExZWEtODdkMC0wMjQyYWMxMzAwMDMiLCJleHAiOjE1OTY0OTU1NDR9.DPu5NaUghcIYkLx1d5NzTCJWrVwVsI_OrsaS9YvqNymMkhtJEAsQ2CzXM9IqADzSKFJaZml98OdAmuZYIbrZjQ"))
-                .body(schoolObj.toString())
+                .body(commentObj.toString())
                 .when()
-                .post(GlobalConstants.CREATE_SCHOOL_URL_POST)
+                .post(GlobalConstants.CREATE_COMMENT_ENDPOINT)
                 .then()
                 .assertThat()
                 .statusCode(200);
     }
 
-    public void deleteSchoolWithID(String schoolID) {
+    @NotNull
+    private JsonObject getCommentObject(String content, String note) {
+        JsonObject commentObj = new JsonObject();
+        commentObj.addProperty("note", note);
+        commentObj.addProperty("content", content);
+        return commentObj;
+    }
+
+    public void editCommentWithID(String commentID) {
+        JsonObject commentObj = new JsonObject();
+        commentObj.addProperty("note", "EDITED COMMENT");
+        commentObj.addProperty("content", "Ky koment eshte i edituar");
+
         SerenityRest
                 .rest()
                 .contentType(ContentType.JSON)
                 .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MTdjOTQ2MC1jM2I2LTExZWEtODdkMC0wMjQyYWMxMzAwMDMiLCJleHAiOjE1OTY0OTU1NDR9.DPu5NaUghcIYkLx1d5NzTCJWrVwVsI_OrsaS9YvqNymMkhtJEAsQ2CzXM9IqADzSKFJaZml98OdAmuZYIbrZjQ"))
+                .body(commentObj.toString())
                 .when()
-                .delete(GlobalConstants.CREATE_SCHOOL_URL_POST+"/"+schoolID)
+                .put(GlobalConstants.CREATE_COMMENT_ENDPOINT + "/" + commentID)
                 .then()
                 .assertThat()
                 .statusCode(200);
     }
 
-    public void updateSchoolWithID(String schoolID) {
-        JsonObject newSchoolObj = new JsonObject();
-        newSchoolObj.addProperty("name", "PUT Rasim Kicina");
-        newSchoolObj.addProperty("address", "Rruga Tahir Meha");
-        newSchoolObj.addProperty("city", "Drenas");
-        newSchoolObj.addProperty("schoolType", "PRIVATE");
-        newSchoolObj.addProperty("schoolCreationDate", "2020-07-15");
-
+    public void deleteCommentWithID(String commentID) {
         SerenityRest
                 .rest()
                 .contentType(ContentType.JSON)
                 .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MTdjOTQ2MC1jM2I2LTExZWEtODdkMC0wMjQyYWMxMzAwMDMiLCJleHAiOjE1OTY0OTU1NDR9.DPu5NaUghcIYkLx1d5NzTCJWrVwVsI_OrsaS9YvqNymMkhtJEAsQ2CzXM9IqADzSKFJaZml98OdAmuZYIbrZjQ"))
-                .body(newSchoolObj)
                 .when()
-                .put(GlobalConstants.CREATE_SCHOOL_URL_POST+"/"+schoolID)
+                .delete(GlobalConstants.CREATE_COMMENT_ENDPOINT + "/" + commentID)
                 .then()
                 .assertThat()
                 .statusCode(200);

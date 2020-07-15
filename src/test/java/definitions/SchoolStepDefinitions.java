@@ -1,10 +1,9 @@
 package definitions;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import net.thucydides.core.annotations.Steps;
-import steps.ApiSchoolSteps;
+import steps.APISchoolSteps;
 
 /**
  * @author lumba
@@ -13,7 +12,7 @@ import steps.ApiSchoolSteps;
  */
 public class SchoolStepDefinitions {
     @Steps
-    ApiSchoolSteps apiSchoolSteps;
+    APISchoolSteps apiSchoolSteps;
 
     @Given("^System administrator wants to create a school with name \"([^\"]*)\", address \"([^\"]*)\", city \"([^\"]*)\", school type \"([^\"]*)\", and created date \"([^\"]*)\"$")
     public void systemAdministratorWantsToCreateASchoolWithNameAddressCitySchoolTypeAndCreatedDate(String schoolName, String address, String city, String schoolType, String createdDate){

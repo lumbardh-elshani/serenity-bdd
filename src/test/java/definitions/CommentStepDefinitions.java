@@ -1,10 +1,9 @@
 package definitions;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import net.thucydides.core.annotations.Steps;
-import steps.CommentSteps;
+import steps.APICommentSteps;
 
 /**
  * @author lumba
@@ -13,11 +12,11 @@ import steps.CommentSteps;
  */
 public class CommentStepDefinitions {
     @Steps
-    CommentSteps commentSteps;
+    APICommentSteps APICommentSteps;
 
     @Given("^User wants to write a comment with content \"([^\"]*)\" and note \"([^\"]*)\"$")
     public void userWantsToWriteACommentWithContentAndNote(String content, String note)  {
-        commentSteps.createComment(content, note);
+        APICommentSteps.createComment(content, note);
     }
 
     @Then("^This comment should be posted$")
@@ -25,5 +24,22 @@ public class CommentStepDefinitions {
     }
 
 
+    @Given("^User wants to edit a comment with id \"([^\"]*)\"$")
+    public void userWantsToEditACommentWithId(String commentID) {
+        APICommentSteps.editCommentWithID(commentID);
+    }
 
+    @Then("^This comment should be edited$")
+    public void thisCommentShouldBeEdited() {
+    }
+
+    @Given("^User wants to delete a comment with id \"([^\"]*)\"$")
+    public void userWantsToDeleteACommentWithId(String commentID) {
+        APICommentSteps.deleteCommentWithID(commentID);
+
+    }
+
+    @Then("^This comment should be deleted$")
+    public void thisCommentShouldBeDeleted() {
+    }
 }

@@ -1,10 +1,5 @@
 Feature: User
 
-#  @Smoke
-#  Scenario: Create user
-#    Given I create user with name "Filan" and last name "Fisteku"
-#    Then User should be created
-
   Scenario: Get user by id
     Given I want to get user with id
     Then you get the user
