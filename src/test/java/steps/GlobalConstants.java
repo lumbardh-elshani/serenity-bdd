@@ -14,7 +14,7 @@ public class GlobalConstants {
     public static final String VALID_PASS = "1111";
     public static final String PROFILE_URL = "http://localhost:4200/profile";
     public static final String NOTIFICATION_URL = "http://localhost:4200/notification";
-    public static final String CALENDAR_URL = "http://localhost:4200/calendar";
+    public static final String CALENDAR_URL = "http://localhost:8080/calendar";
     public static final String MEETINGS_URL = "http://localhost:4200/meetings";
     public static final String SCHEDULE_SETTINGS_URL = "http://localhost:4200/schedule/general-settings";
     public static final String SCHEDULE_CREATE_URL = "http://localhost:4200/schedule/create";
