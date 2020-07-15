@@ -23,6 +23,10 @@ public class GlobalConstants {
     public static final String PRESENCE_URL = "http://localhost:4200/schedule/presence";
     public static final String GRADE_BOOK_URL = "http://localhost:4200/grade-book";
     public static final String CHAT_URL = "http://localhost:4200/chat/1";
-    public static final String CREATE_SCHOOL_URL_POST = "http://localhost:8081/school";
-    public static final String CREATE_COMMENT_URL_POST = "http://localhost:8080/post-comment";
+
+
+    public static final String CREATE_SCHOOL_ENDPOINT = "http://localhost:8081/school";
+    public static final String CREATE_COMMENT_ENDPOINT = "http://localhost:8080/post-comment";
+    public static final String CREATE_USER_ENDPOINT = "http://localhost:8082/user/users";
+    public static final String CREATE_ACTIVITY_ENDPOINT = "http://localhost:8080/activity";
 }
