@@ -7,11 +7,12 @@ import io.restassured.http.Header;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.hamcrest.Matchers;
 
 public class ApiCourseSteps extends ScenarioSteps {
 
     private final String GET_COURSES_BY_STUDENT_ID = "http://localhost:8662/course/course/student";
-    private final String GET_COURSES_BY_TEACHER_ID = "http://localhost:8662/course/course/teacher";
+    private final String GET_COURSES_BY_TEACHER_ID = "http://localhost:8662/course/course/teacher?teacherId=6619afe0-f0ef-4aa5-a1e4-a597e8174bbf";
     private final String CREATE_FORUM_POST = "http://localhost:8662/course/forum-post";
     private final String GET_FORUM_POSTS_BY_COURSE_ID = "http://localhost:8662/course/forum-post?courseId=858e7eac-e125-4f27-97be-17eeb9d1efa5";
 
@@ -28,6 +29,16 @@ public class ApiCourseSteps extends ScenarioSteps {
                 .statusCode(200);
     }
 
+    @Step("Receive courses")
+    public void verifyCoursesReception() {
+        SerenityRest
+                .lastResponse()
+                .then()
+                .assertThat()
+                .body("name[0]", Matchers.equalTo("MAth 1"))
+                .statusCode(200);
+    }
+
     @Step("Get courses by teacher id")
     public void getCoursesByTeacherId() {
         SerenityRest
@@ -35,9 +46,16 @@ public class ApiCourseSteps extends ScenarioSteps {
                 .contentType(ContentType.JSON)
                 .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1OGZkNjJjMS0wYjU4LTQ1NmYtOGMzYi0yMWJkZjU3MzlkMzciLCJleHAiOjE1OTY1NjI3OTF9.pgs_wXTVvuHcDiQz39vdK6wSlH3Gi9bJlGS_pnapOVBIEPbg517NdqS4f6pMSFUmEmBkvC1GlvIQW-p_HEQQ9Q"))
                 .when()
-                .get(GET_COURSES_BY_TEACHER_ID)
+                .get(GET_COURSES_BY_TEACHER_ID);
+    }
+
+    @Step("Receive teacher courses")
+    public void verifyCoursesReceptionForTeacher() {
+        SerenityRest
+                .lastResponse()
                 .then()
                 .assertThat()
+                .body("name[0]", Matchers.equalTo("Biology"))
                 .statusCode(200);
     }
 
@@ -55,12 +73,19 @@ public class ApiCourseSteps extends ScenarioSteps {
         SerenityRest
                 .rest()
                 .contentType(ContentType.JSON)
-                .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2ODU0NmMwMS1jZDM2LTRjMWUtOTEzYi03ZTM1Y2JjZDU3ZGIiLCJleHAiOjE1OTQ4NDQwNzl9.H_uUke8e9ATh4OB-ahJJFnRmpSCboEHyVVMYfvdDrF2qXsMjoZBXlyBlgpFRzmptKvhos8_g7k2nuLZMTjyiGg"))
+                .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1OGZkNjJjMS0wYjU4LTQ1NmYtOGMzYi0yMWJkZjU3MzlkMzciLCJleHAiOjE1OTY1NjI3OTF9.pgs_wXTVvuHcDiQz39vdK6wSlH3Gi9bJlGS_pnapOVBIEPbg517NdqS4f6pMSFUmEmBkvC1GlvIQW-p_HEQQ9Q"))
                 .body(forumPostObj.toString())
                 .when()
-                .post(CREATE_FORUM_POST)
+                .post(CREATE_FORUM_POST);
+    }
+
+    @Step("Get created post")
+    public void verifyForumPostCreation() {
+        SerenityRest
+                .lastResponse()
                 .then()
                 .assertThat()
+                .body("title", Matchers.equalTo("New post"))
                 .statusCode(201);
     }
 
@@ -75,6 +100,14 @@ public class ApiCourseSteps extends ScenarioSteps {
                 .then()
                 .assertThat()
                 .statusCode(200);
+    }
+
+    public void verifyForumPostsReception() {
+        SerenityRest
+                .lastResponse()
+                .then()
+                .assertThat()
+                .body("id[0]", Matchers.equalTo("1454defd-b8bd-49e9-9ce3-5733fb5a4b60"));
     }
 
 }

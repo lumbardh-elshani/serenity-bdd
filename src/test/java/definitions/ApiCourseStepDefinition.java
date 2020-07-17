@@ -17,7 +17,7 @@ public class ApiCourseStepDefinition {
 
     @Then("^I get a list of courses$")
     public void iGetAListOfCourses() {
-
+        apiCourseSteps.verifyCoursesReception();
     }
 
     @Given("^I want to courses by teacher id$")
@@ -27,7 +27,7 @@ public class ApiCourseStepDefinition {
 
     @Then("^I get a list of courses taught by that teacher$")
     public void iGetAListOfCoursesTaughtByThatTeacher() {
-
+        apiCourseSteps.verifyCoursesReceptionForTeacher();
     }
 
     @Given("^I want to create a new forum post by the necessary info$")
@@ -37,7 +37,7 @@ public class ApiCourseStepDefinition {
 
     @Then("^I get the created forum post$")
     public void iGetTheCreatedForumPost() {
-
+        apiCourseSteps.verifyForumPostCreation();
     }
 
     @Given("^I want to get forum posts by course id$")
@@ -47,7 +47,7 @@ public class ApiCourseStepDefinition {
 
     @Then("^I get a list of forum posts$")
     public void iGetAListOfForumPosts() {
-
+        apiCourseSteps.verifyForumPostsReception();
     }
 
 }
