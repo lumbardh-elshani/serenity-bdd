@@ -1,12 +1,14 @@
 package steps;
 
 import com.google.gson.JsonObject;
+import cucumber.api.java.eo.Se;
 import io.restassured.http.ContentType;
 import io.restassured.http.Header;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import net.serenitybdd.rest.SerenityRest;
+import org.hamcrest.Matchers;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -24,9 +26,15 @@ public class APIActivitySteps {
                 .contentType(ContentType.JSON)
                 .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MTdjOTQ2MC1jM2I2LTExZWEtODdkMC0wMjQyYWMxMzAwMDMiLCJleHAiOjE1OTY0OTU1NDR9.DPu5NaUghcIYkLx1d5NzTCJWrVwVsI_OrsaS9YvqNymMkhtJEAsQ2CzXM9IqADzSKFJaZml98OdAmuZYIbrZjQ"))
                 .when()
-                .get(GlobalConstants.ACTIVITY_ENDPOINT + "/" + activityID)
+                .get(GlobalConstants.ACTIVITY_ENDPOINT + "/" + activityID);
+    }
+
+    public void verifyActivityReception(String activityID){
+        SerenityRest
+                .lastResponse()
                 .then()
                 .assertThat()
+                .body("id", Matchers.equalTo(activityID))
                 .statusCode(200);
     }
 
@@ -39,9 +47,15 @@ public class APIActivitySteps {
                 .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MTdjOTQ2MC1jM2I2LTExZWEtODdkMC0wMjQyYWMxMzAwMDMiLCJleHAiOjE1OTY0OTU1NDR9.DPu5NaUghcIYkLx1d5NzTCJWrVwVsI_OrsaS9YvqNymMkhtJEAsQ2CzXM9IqADzSKFJaZml98OdAmuZYIbrZjQ"))
                 .body(activityObj.toString())
                 .when()
-                .post(GlobalConstants.ACTIVITY_ENDPOINT)
+                .post(GlobalConstants.ACTIVITY_ENDPOINT);
+    }
+
+    public void verifyActivityCreation(){
+        SerenityRest
+                .lastResponse()
                 .then()
                 .assertThat()
+                .body("id", Matchers.notNullValue())
                 .statusCode(200);
     }
 
@@ -64,9 +78,15 @@ public class APIActivitySteps {
                 .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MTdjOTQ2MC1jM2I2LTExZWEtODdkMC0wMjQyYWMxMzAwMDMiLCJleHAiOjE1OTY0OTU1NDR9.DPu5NaUghcIYkLx1d5NzTCJWrVwVsI_OrsaS9YvqNymMkhtJEAsQ2CzXM9IqADzSKFJaZml98OdAmuZYIbrZjQ"))
                 .body(activityObj.toString())
                 .when()
-                .put(GlobalConstants.ACTIVITY_ENDPOINT + "/" + activityID)
+                .put(GlobalConstants.ACTIVITY_ENDPOINT + "/" + activityID);
+    }
+
+    public void verifyActivityUpdate(String activityID) {
+        SerenityRest
+                .lastResponse()
                 .then()
                 .assertThat()
+                .body("id", Matchers.equalTo(activityID))
                 .statusCode(200);
     }
 
@@ -79,6 +99,15 @@ public class APIActivitySteps {
                 .delete(GlobalConstants.ACTIVITY_ENDPOINT + "/" + activityID)
                 .then()
                 .assertThat()
+                .statusCode(200);
+    }
+
+    public void verifyActivityDeletion(){
+        SerenityRest.
+                lastResponse()
+                .then()
+                .assertThat()
+                .body(Matchers.isEmptyOrNullString())
                 .statusCode(200);
     }
 }

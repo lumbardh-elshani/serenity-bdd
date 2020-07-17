@@ -21,8 +21,9 @@ public class ActivityStepDefinitions {
         APIActivitySteps.getActivityWithID(activityID);
     }
 
-    @Then("^User should get that activity$")
-    public void userShouldGetThatActivity() {
+    @Then("^User should get that activity with id \"([^\"]*)\"$")
+    public void userShouldGetThatActivityWithId(String activityID) {
+        APIActivitySteps.verifyActivityReception(activityID);
     }
 
     @Given("^User wants to create an activity with name \"([^\"]*)\" and description \"([^\"]*)\"$")
@@ -33,6 +34,7 @@ public class ActivityStepDefinitions {
 
     @Then("^That activity should be created$")
     public void thatActivityShouldBeCreated() {
+        APIActivitySteps.verifyActivityCreation();
     }
 
     @Given("^User wants to edit an activity with id \"([^\"]*)\"$")
@@ -41,8 +43,9 @@ public class ActivityStepDefinitions {
 
     }
 
-    @Then("^That activity should be edited$")
-    public void thatActivityShouldBeEdited() {
+    @Then("^That activity with id \"([^\"]*)\" should be edited$")
+    public void thatActivityWithIdShouldBeEdited(String activityID) {
+        APIActivitySteps.verifyActivityUpdate(activityID);
     }
 
     @Given("^User wants to delete an activity with id \"([^\"]*)\"$")
@@ -53,5 +56,9 @@ public class ActivityStepDefinitions {
 
     @Then("^That activity should be deleted$")
     public void thatActivityShouldBeDeleted() {
+        APIActivitySteps.verifyActivityDeletion();
     }
+
+
+
 }

@@ -3,7 +3,7 @@ Feature: Activity
   @Regression
   Scenario: Get an activity by id
     Given User wants to get an activity with id "58010692-dff5-4738-8b42-6472063a73bb"
-    Then User should get that activity
+    Then User should get that activity with id "58010692-dff5-4738-8b42-6472063a73bb"
 
   @Regression
   Scenario: Create an activity
@@ -13,7 +13,7 @@ Feature: Activity
   @Regression
   Scenario: Edit an activity
     Given User wants to edit an activity with id "58010692-dff5-4738-8b42-6472063a73bb"
-    Then That activity should be edited
+    Then That activity with id "58010692-dff5-4738-8b42-6472063a73bb" should be edited
 
   @Regression
   Scenario: Delete an activity
