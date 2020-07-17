@@ -1,14 +1,18 @@
 @api-debug-runner
 Feature: Comment
 
-  Scenario: Post a comment
-    Given User wants to write a comment with content "Test test" and note "TESTING"
+  Scenario: Post a comment on a forum post
+    Given User wants to write a comment with content "Test test" and note "TESTING" on forum post with id "292866b9-e99f-4d1a-9d83-0e56ec0297b3"
     Then This comment should be posted
 
-  Scenario: Edit a comment
-    Given User wants to edit a comment with id "130b3cfc-ca65-4dd0-9bc3-d94948f68b77"
+  Scenario: Edit a comment on a forum post
+    Given User wants to edit a comment with id "ec16717a-a11f-477c-85b6-d4b1f1b8e78c" on forum post with id "292866b9-e99f-4d1a-9d83-0e56ec0297b3"
     Then This comment should be edited
 
-  Scenario: Delete a comment
-    Given User wants to delete a comment with id "9d489049-a2bc-4927-a172-4627e2d942d4"
+  Scenario: Get a comment on a forum post by id
+    Given User wants to get a comment with id "ec16717a-a11f-477c-85b6-d4b1f1b8e78c" on forum post with id "292866b9-e99f-4d1a-9d83-0e56ec0297b3"
+    Then User should get that comment
+
+  Scenario: Delete a comment on a forum post
+    Given User wants to delete a comment with id "e96c212b-10c9-4511-9b87-315fe99e0ac9" on forum post with id "292866b9-e99f-4d1a-9d83-0e56ec0297b3"
     Then This comment should be deleted

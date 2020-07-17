@@ -24,7 +24,7 @@ public class APIActivitySteps {
                 .contentType(ContentType.JSON)
                 .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MTdjOTQ2MC1jM2I2LTExZWEtODdkMC0wMjQyYWMxMzAwMDMiLCJleHAiOjE1OTY0OTU1NDR9.DPu5NaUghcIYkLx1d5NzTCJWrVwVsI_OrsaS9YvqNymMkhtJEAsQ2CzXM9IqADzSKFJaZml98OdAmuZYIbrZjQ"))
                 .when()
-                .get(GlobalConstants.CREATE_ACTIVITY_ENDPOINT + "/" + activityID)
+                .get(GlobalConstants.ACTIVITY_ENDPOINT + "/" + activityID)
                 .then()
                 .assertThat()
                 .statusCode(200);
@@ -39,7 +39,7 @@ public class APIActivitySteps {
                 .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MTdjOTQ2MC1jM2I2LTExZWEtODdkMC0wMjQyYWMxMzAwMDMiLCJleHAiOjE1OTY0OTU1NDR9.DPu5NaUghcIYkLx1d5NzTCJWrVwVsI_OrsaS9YvqNymMkhtJEAsQ2CzXM9IqADzSKFJaZml98OdAmuZYIbrZjQ"))
                 .body(activityObj.toString())
                 .when()
-                .post(GlobalConstants.CREATE_ACTIVITY_ENDPOINT)
+                .post(GlobalConstants.ACTIVITY_ENDPOINT)
                 .then()
                 .assertThat()
                 .statusCode(200);
@@ -64,7 +64,7 @@ public class APIActivitySteps {
                 .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MTdjOTQ2MC1jM2I2LTExZWEtODdkMC0wMjQyYWMxMzAwMDMiLCJleHAiOjE1OTY0OTU1NDR9.DPu5NaUghcIYkLx1d5NzTCJWrVwVsI_OrsaS9YvqNymMkhtJEAsQ2CzXM9IqADzSKFJaZml98OdAmuZYIbrZjQ"))
                 .body(activityObj.toString())
                 .when()
-                .put(GlobalConstants.CREATE_ACTIVITY_ENDPOINT + "/" + activityID)
+                .put(GlobalConstants.ACTIVITY_ENDPOINT + "/" + activityID)
                 .then()
                 .assertThat()
                 .statusCode(200);
@@ -76,7 +76,7 @@ public class APIActivitySteps {
                 .contentType(ContentType.JSON)
                 .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MTdjOTQ2MC1jM2I2LTExZWEtODdkMC0wMjQyYWMxMzAwMDMiLCJleHAiOjE1OTY0OTU1NDR9.DPu5NaUghcIYkLx1d5NzTCJWrVwVsI_OrsaS9YvqNymMkhtJEAsQ2CzXM9IqADzSKFJaZml98OdAmuZYIbrZjQ"))
                 .when()
-                .delete(GlobalConstants.CREATE_ACTIVITY_ENDPOINT + "/" + activityID)
+                .delete(GlobalConstants.ACTIVITY_ENDPOINT + "/" + activityID)
                 .then()
                 .assertThat()
                 .statusCode(200);

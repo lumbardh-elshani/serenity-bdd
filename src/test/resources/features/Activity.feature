@@ -1,6 +1,6 @@
 Feature: Activity
 
-  Scenario: Get an activity with
+  Scenario: Get an activity by id
     Given User wants to get an activity with id "58010692-dff5-4738-8b42-6472063a73bb"
     Then User should get that activity
 
