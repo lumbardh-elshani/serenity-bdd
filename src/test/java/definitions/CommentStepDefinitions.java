@@ -23,6 +23,7 @@ public class CommentStepDefinitions {
 
     @Then("^This comment should be posted$")
     public void thisCommentShouldBePosted() {
+        APICommentSteps.verifyCommentCreation();
     }
 
     @Given("^User wants to edit a comment with id \"([^\"]*)\" on forum post with id \"([^\"]*)\"$")
@@ -32,6 +33,7 @@ public class CommentStepDefinitions {
 
     @Then("^This comment should be edited$")
     public void thisCommentShouldBeEdited() {
+        APICommentSteps.verifyCommentModification();
     }
 
     @Given("^User wants to delete a comment with id \"([^\"]*)\" on forum post with id \"([^\"]*)\"$")
@@ -42,6 +44,7 @@ public class CommentStepDefinitions {
 
     @Then("^This comment should be deleted$")
     public void thisCommentShouldBeDeleted() {
+        APICommentSteps.verifyCommentIsRemoved();
     }
 
     @Given("^User wants to get a comment with id \"([^\"]*)\" on forum post with id \"([^\"]*)\"$")
@@ -49,7 +52,8 @@ public class CommentStepDefinitions {
         APICommentSteps.getCommentWithID(commentId, postId);
     }
 
-    @Then("^User should get that comment$")
-    public void userShouldGetThatComment() {
+    @Then("^User should get comment with id \"([^\"]*)\"$")
+    public void userShouldGetCommentWithId(String commentId) {
+        APICommentSteps.verifyCommentFetch(commentId);
     }
 }
