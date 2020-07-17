@@ -27,6 +27,7 @@ public class LoginSteps extends ScenarioSteps {
     public void openLoginPage(String loginURL){
         getWebdriverManager().getWebdriver().get(loginURL);
     }
+
     public void fillEmailAndPassword(String email, String pass){
         loginPage.getEmailInput().type(email);
         loginPage.getPasswordInput().type(pass);
