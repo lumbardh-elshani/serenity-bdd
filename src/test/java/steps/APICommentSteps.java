@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
+import org.hamcrest.Matchers;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -28,9 +29,15 @@ public class APICommentSteps {
                 .queryParam("postId",postId)
                 .body(commentObj.toString())
                 .when()
-                .post(GlobalConstants.COMMENT_ENDPOINT)
+                .post(GlobalConstants.COMMENT_ENDPOINT);
+    }
+
+    @Step("This is response validation for comment creation")
+    public void verifyCommentCreation(){
+        SerenityRest.lastResponse()
                 .then()
                 .assertThat()
+                .body("id", Matchers.notNullValue())
                 .statusCode(200);
     }
 
@@ -60,6 +67,15 @@ public class APICommentSteps {
                 .statusCode(200);
     }
 
+    @Step("This is response validation for comment modification")
+    public void verifyCommentModification(){
+        SerenityRest.lastResponse()
+                .then()
+                .assertThat()
+                .body("id", Matchers.notNullValue())
+                .statusCode(200);
+    }
+
     public void getCommentWithID(String commentID, String postId) {
         SerenityRest
                 .rest()
@@ -73,6 +89,15 @@ public class APICommentSteps {
                 .statusCode(200);
     }
 
+    @Step("This is response validation for comment fetch")
+    public void verifyCommentFetch(String commentID){
+        SerenityRest.lastResponse()
+                .then()
+                .assertThat()
+                .body("id", Matchers.equalTo(commentID))
+                .statusCode(200);
+    }
+
     public void deleteCommentWithID(String commentID, String postId) {
         SerenityRest
                 .rest()
@@ -81,6 +106,14 @@ public class APICommentSteps {
                 .queryParam("postId",postId)
                 .when()
                 .delete(GlobalConstants.COMMENT_ENDPOINT + "/" + commentID)
+                .then()
+                .assertThat()
+                .statusCode(200);
+    }
+
+    @Step("This is response validation when a comment is removed")
+    public void verifyCommentIsRemoved(){
+        SerenityRest.lastResponse()
                 .then()
                 .assertThat()
                 .statusCode(200);
