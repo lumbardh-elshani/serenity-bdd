@@ -21,6 +21,7 @@ public class SchoolStepDefinitions {
 
     @Then("^This school should be create in system$")
     public void thisSchoolShouldBeCreateInSystem() {
+        apiSchoolSteps.verifySchoolCreation();
     }
 
     @Given("^System administrator wants to delete a school with id \"([^\"]*)\"$")

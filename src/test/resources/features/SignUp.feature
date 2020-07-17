@@ -2,6 +2,7 @@
 @ui-debug-runner
 Feature: SignUp
 
+  @Smoke @Regression
   Scenario: SignUp with personal information
     Given User with valid personal details
     When User navigates to "http://localhost:4200/auth/register"

@@ -2,6 +2,7 @@
 @ui-debug-runner
 Feature: Login
 
+  @Smoke @Regression
   Scenario: Login with valid credentials
     Given User ready to login with valid credentials
     When User goes to "http://localhost:4200/auth/login"
@@ -9,6 +10,7 @@ Feature: Login
     And User clicks login button
     Then User should be logged in and see dashboard
 
+  @Regression
   Scenario: Login with invalid credentials
     Given User with invalid credentials and opened browser on "http://localhost:4200/auth/login"
     When User type "asdasd" for email address and "asdasd" for password

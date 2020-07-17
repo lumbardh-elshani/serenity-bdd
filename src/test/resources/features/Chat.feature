@@ -2,6 +2,7 @@
 @ui-debug-runner
 Feature: Chat
 
+  @Regression
   Scenario: Send a message
     Given User wants to send a message to a friend
     When User types the message in chat

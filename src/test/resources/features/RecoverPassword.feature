@@ -2,6 +2,7 @@
 @ui-debug-runner
 Feature: RecoverPassword
 
+  @Regression
   Scenario: Recover the forgotten password
     Given User that forgot the password
     When User clicks forgot password button on Login Page

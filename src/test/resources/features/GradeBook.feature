@@ -2,6 +2,7 @@
 @ui-debug-runner
 Feature: Grade Book
 
+  @Regression
   Scenario: Check grades
     Given Student wants to see the grades obtained
     When Student goes to grade book page

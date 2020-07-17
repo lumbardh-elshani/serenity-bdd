@@ -2,6 +2,7 @@
 @ui-debug-runner
 Feature: Presence
 
+  @Regression
   Scenario: Set presence to students
     Given Professor wants to set the presence to students
     When Professor opens the presence page

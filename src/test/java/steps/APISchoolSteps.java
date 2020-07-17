@@ -4,6 +4,9 @@ import com.google.gson.JsonObject;
 import io.restassured.http.ContentType;
 import io.restassured.http.Header;
 import net.serenitybdd.rest.SerenityRest;
+import net.thucydides.core.annotations.Step;
+import org.hamcrest.Matchers;
+import org.openqa.selenium.json.Json;
 
 /**
  * @author lumba
@@ -26,9 +29,15 @@ public class APISchoolSteps {
                 .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MTdjOTQ2MC1jM2I2LTExZWEtODdkMC0wMjQyYWMxMzAwMDMiLCJleHAiOjE1OTY0OTU1NDR9.DPu5NaUghcIYkLx1d5NzTCJWrVwVsI_OrsaS9YvqNymMkhtJEAsQ2CzXM9IqADzSKFJaZml98OdAmuZYIbrZjQ"))
                 .body(schoolObj.toString())
                 .when()
-                .post(GlobalConstants.SCHOOL_ENDPOINT)
+                .post(GlobalConstants.SCHOOL_ENDPOINT);
+    }
+
+    @Step("This is response validation for school creation")
+    public void verifySchoolCreation(){
+        SerenityRest.lastResponse()
                 .then()
                 .assertThat()
+                .body("recordStatus", Matchers.equalTo("ACTIVE"))
                 .statusCode(200);
     }
 
