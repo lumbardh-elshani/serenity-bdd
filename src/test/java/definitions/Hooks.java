@@ -11,8 +11,8 @@ public class Hooks {
     @Before
     public void setup() {
 
-//        System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
-//        getWebdriverManager().getWebdriver().manage().window().maximize();
+        /*System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
+        getWebdriverManager().getWebdriver().manage().window().maximize();*/
 
         SerenityRest.enableLoggingOfRequestAndResponseIfValidationFails();
     }

@@ -6,6 +6,8 @@ import lombok.experimental.FieldDefaults;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.eclipse.jetty.util.annotation.ManagedAttribute;
+import org.hamcrest.Matchers;
+import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import pages.LoginPage;
@@ -42,4 +44,13 @@ public class LoginSteps extends ScenarioSteps {
         //getWebdriverManager().getWebdriver().navigate().to(GlobalConstants.DASHBOARD_URL);
     }
 
+    public void verifyThatUserIsLoggedIn() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        String URL = getWebdriverManager().getWebdriver().getCurrentUrl();
+        Assert.assertThat(URL, Matchers.equalTo(GlobalConstants.DASHBOARD_URL));
+    }
 }

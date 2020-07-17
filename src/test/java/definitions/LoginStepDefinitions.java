@@ -41,7 +41,7 @@ public class LoginStepDefinitions {
 
     @Then("^User should be logged in and see dashboard$")
     public void heShouldBeLoggedInAndSeeDashboard() {
-
+        loginSteps.verifyThatUserIsLoggedIn();
     }
 
     @Given("^User with invalid credentials and opened browser on \"([^\"]*)\"$")

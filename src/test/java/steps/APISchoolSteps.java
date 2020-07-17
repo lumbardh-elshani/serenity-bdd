@@ -55,9 +55,15 @@ public class APISchoolSteps {
                 .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MTdjOTQ2MC1jM2I2LTExZWEtODdkMC0wMjQyYWMxMzAwMDMiLCJleHAiOjE1OTY0OTU1NDR9.DPu5NaUghcIYkLx1d5NzTCJWrVwVsI_OrsaS9YvqNymMkhtJEAsQ2CzXM9IqADzSKFJaZml98OdAmuZYIbrZjQ"))
                 .body(newSchoolObj)
                 .when()
-                .put(GlobalConstants.SCHOOL_ENDPOINT +"/"+schoolID)
+                .put(GlobalConstants.SCHOOL_ENDPOINT +"/"+schoolID);
+    }
+
+    @Step("This is response validation for school update")
+    public void verifySchoolUpdate(String schoolID){
+        SerenityRest.lastResponse()
                 .then()
                 .assertThat()
+                .body("id", Matchers.equalTo(schoolID))
                 .statusCode(200);
     }
 
@@ -67,9 +73,15 @@ public class APISchoolSteps {
                 .contentType(ContentType.JSON)
                 .header(new Header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MTdjOTQ2MC1jM2I2LTExZWEtODdkMC0wMjQyYWMxMzAwMDMiLCJleHAiOjE1OTY0OTU1NDR9.DPu5NaUghcIYkLx1d5NzTCJWrVwVsI_OrsaS9YvqNymMkhtJEAsQ2CzXM9IqADzSKFJaZml98OdAmuZYIbrZjQ"))
                 .when()
-                .delete(GlobalConstants.SCHOOL_ENDPOINT +"/"+schoolID)
+                .delete(GlobalConstants.SCHOOL_ENDPOINT +"/"+schoolID);
+    }
+
+    public void verifySchoolDeletion() {
+        SerenityRest.
+                lastResponse()
                 .then()
                 .assertThat()
+                .body(Matchers.isEmptyOrNullString())
                 .statusCode(200);
     }
 }

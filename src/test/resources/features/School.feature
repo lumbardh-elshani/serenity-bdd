@@ -8,8 +8,8 @@ Feature: School
 
   @Regression
   Scenario: Update a school
-    Given System administrator want to update school with id "08a88645-bbd4-461b-bafe-4cfe289072da"
-    Then This school should be updated
+    Given System administrator want to update school with id "63f8e59c-7101-47eb-b1e9-0452ffacf71f"
+    Then This school with id "63f8e59c-7101-47eb-b1e9-0452ffacf71f" should be updated
 
   @Regression
   Scenario: Delete a school

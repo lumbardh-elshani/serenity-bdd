@@ -1,5 +1,6 @@
 package definitions;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import net.thucydides.core.annotations.Steps;
@@ -24,6 +25,16 @@ public class SchoolStepDefinitions {
         apiSchoolSteps.verifySchoolCreation();
     }
 
+    @Given("^System administrator want to update school with id \"([^\"]*)\"$")
+    public void systemAdministratorWantToUpdateSchoolWithId(String schoolID)  {
+        apiSchoolSteps.updateSchoolWithID(schoolID);
+    }
+
+    @Then("^This school with id \"([^\"]*)\" should be updated$")
+    public void thisSchoolWithIdShouldBeUpdated(String schoolID){
+        apiSchoolSteps.verifySchoolUpdate(schoolID);
+    }
+
     @Given("^System administrator wants to delete a school with id \"([^\"]*)\"$")
     public void systemAdministratorWantsToDeleteASchoolWithId(String schoolID) {
         apiSchoolSteps.deleteSchoolWithID(schoolID);
@@ -31,14 +42,8 @@ public class SchoolStepDefinitions {
 
     @Then("^This school should be deleted$")
     public void thisSchoolShouldBeDeleted() {
+        apiSchoolSteps.verifySchoolDeletion();
     }
 
-    @Given("^System administrator want to update school with id \"([^\"]*)\"$")
-    public void systemAdministratorWantToUpdateSchoolWithId(String schoolID)  {
-        apiSchoolSteps.updateSchoolWithID(schoolID);
-    }
 
-    @Then("^This school should be updated$")
-    public void thisSchoolShouldBeUpdated() {
-    }
 }
